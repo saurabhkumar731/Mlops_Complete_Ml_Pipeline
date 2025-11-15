@@ -29,8 +29,8 @@ stages:
     - data/processed
     - src/model_building.py
     params:
-     - model_building.n_estimators
-     - model_building.random_state
+    - model_building.n_estimators
+    - model_building.random_state
     outs:
     - models/model.pkl
   model_evaluation:
@@ -40,3 +40,10 @@ stages:
     - src/model_evaluation.py
     metrics:
     - reports/metrics.json
+params:
+- dvclive/params.yaml
+metrics:
+- dvclive/metrics.json
+plots:
+- dvclive/plots/metrics:
+    x: step
